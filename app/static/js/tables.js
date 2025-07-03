@@ -17,3 +17,29 @@ document.getElementById('show-stats-btn').onclick = function() {
     statsDiv.style.display = 'none';
   }
 };
+
+$(document).ready(function() {
+  $.get('/data_table_ajax', function(json) {
+    // 1. Build columns array dynamically
+    var columns = json.columns.map(function(col) {
+      return { data: col, title: col };
+    });
+
+    // 2. Fill in the <th> elements
+    var thead = $('#dataTable thead tr');
+    thead.empty();
+    columns.forEach(function(col) {
+      thead.append('<th>' + col.title + '</th>');
+    });
+
+    // 3. Initialize DataTables with data option
+    $('#dataTable').DataTable({
+      data: json.data,
+      columns: columns,
+      scrollX: true
+    });
+  });
+});
+
+
+

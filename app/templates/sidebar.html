@@ -93,40 +93,32 @@
 
             <!-- Nav Item - Tables Collapse Menu -->
             <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTables"
-        aria-expanded="true" aria-controls="collapseTables">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Tables</span>
-    </a>
-    <div id="collapseTables" class="collapse" aria-labelledby="headingTables" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Manage Tables:</h6>
-            <!-- Link pentru adăugare tabel -->
-            <a class="collapse-item" href="#" data-toggle="modal" data-target="#uploadModal">➕ Add New Table</a>
-
-            <!-- Divider -->
-            <div class="collapse-divider"></div>
-
-            <!-- Listează fișierele încărcate -->
-            {% if uploaded_files %}
-                {% for file in uploaded_files %}
-                    <a class="collapse-item" href="{{ url_for('main.tables', file=file) }}">{{ file }}</a>
-                {% endfor %}
-            {% else %}
-                <span class="collapse-item text-muted small">No files uploaded</span>
-            {% endif %}
-        </div>
-    </div>
-</li>
-
-
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('main.tables') }}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTables"
+                    aria-expanded="true" aria-controls="collapseTables">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>Tables</span>
+                </a>
+                <div id="collapseTables" class="collapse" aria-labelledby="headingTables" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Manage Tables:</h6>
+                        <!-- Link pentru adăugare tabel -->
+                        <a class="collapse-item" href="#" data-toggle="modal" data-target="#uploadModal">➕ Add New Table</a>
+
+                        <!-- Divider -->
+                        <div class="collapse-divider"></div>
+
+                        <!-- Listează fișierele încărcate -->
+                        {% if uploaded_files %}
+                            {% for file in uploaded_files %}
+                                <a class="collapse-item" href="{{ url_for('main.tables', file=file) }}">{{ file }}</a>
+                            {% endfor %}
+                        {% else %}
+                            <span class="collapse-item text-muted small">No files uploaded</span>
+                        {% endif %}
+                    </div>
+                </div>
             </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
