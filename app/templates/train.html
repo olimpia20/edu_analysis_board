@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block title %}Train AI Model | Educational Analysis Board{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <h2 class="mb-4"><i class="fas fa-robot mr-2"></i>Train AI Model</h2>
+    
+    <!-- Step 1: Task Type Selection -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0"><i class="fas fa-tasks mr-2"></i>Step 1: Select Task Type</h5>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="taskType"><strong>Task Type:</strong></label>
+                        <select class="form-control" id="taskType" name="taskType" required>
+                    <option value="">-- Select Task Type --</option>
+                            <option value="regression">Regression</option>
+                            <option value="classification">Classification</option>
+                            <option value="clustering">Clustering</option>
+                        </select>
+                <small class="form-text text-muted">
+                    <strong>Regression:</strong> Predict continuous values (e.g., price, temperature)<br>
+                    <strong>Classification:</strong> Predict categories/classes (e.g., yes/no, color, type)<br>
+                    <strong>Clustering:</strong> Group similar data points together (no target variable needed)
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Algorithm Selection -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0"><i class="fas fa-cog mr-2"></i>Step 2: Select Algorithm</h5>
+                    </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="algorithm"><strong>Algorithm:</strong></label>
+                        <select class="form-control" id="algorithm" name="algorithm" required disabled>
+                    <option value="">-- Select Algorithm --</option>
+                        </select>
+                <div id="algorithmDescription" class="mt-2">
+                    <!-- Algorithm descriptions will be shown here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Data Selection -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0"><i class="fas fa-database mr-2"></i>Step 3: Select Your Data</h5>
+                    </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6" id="targetColDiv">
+                    <div class="form-group">
+                        <label for="targetCol"><strong>Target Column (What you want to predict):</strong></label>
+                        <select class="form-control" id="targetCol" name="targetCol" required>
+                            <option value="">-- Select Target Column --</option>
+                            {% for col in columns %}
+                            <option value="{{ col }}">{{ col }}</option>
+                            {% endfor %}
+                        </select>
+                        <small class="form-text text-muted">This is the variable you want your model to predict.</small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="featureCols"><strong>Feature Columns (Input variables):</strong></label>
+                        <select multiple class="form-control" id="featureCols" name="featureCols" size="8" required>
+                            {% for col in columns %}
+                            <option value="{{ col }}">{{ col }}</option>
+                            {% endfor %}
+                        </select>
+                        <small class="form-text text-muted">
+                            Hold Ctrl (Windows) or Cmd (Mac) to select multiple features.<br>
+                            These are the variables your model will use to make predictions.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 4: Train Model -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0"><i class="fas fa-play mr-2"></i>Step 4: Train Your Model</h5>
+        </div>
+        <div class="card-body">
+            <form id="trainForm">
+                <button type="submit" id="trainBtn" class="btn btn-primary btn-lg" disabled>
+                    <i class="fas fa-cog fa-spin mr-2" id="trainSpinner" style="display: none;"></i>
+                    Train Model
+                </button>
+            </form>
+            <div id="trainFeedback" class="mt-3"></div>
+        </div>
+    </div>
+
+    <!-- Step 5: Make Predictions (Hidden until model is trained) -->
+    <div id="predictionSection" style="display:none;">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-magic mr-2"></i>Step 5: Make Predictions</h5>
+            </div>
+            <div class="card-body">
+                <form id="predictForm" class="mb-3">
+                    <!-- Prediction form will be generated here -->
+                </form>
+                <div id="predictResult" class="mt-3"></div>
+                <div id="predictionHistory" class="mt-3">
+                    <!-- Prediction history will be shown here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Normalization Warning -->
+<div id="normalizeWarning" class="alert alert-warning mt-3 d-none">
+    <strong><i class="fas fa-exclamation-triangle mr-2"></i>Warning:</strong> 
+    Your data is not normalized. Please normalize your data before training a model for better results.
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/train.js') }}"></script>
+{% endblock %} 

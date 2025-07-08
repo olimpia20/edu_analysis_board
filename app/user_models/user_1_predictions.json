@@ -1,0 +1,103 @@
+[
+  {
+    "timestamp": "2025-07-08 13:22:24.778107",
+    "input": {
+      "NOTA_EC": "67"
+    },
+    "prediction": "Cluster 1",
+    "task": "clustering",
+    "algorithm": "KMeans"
+  },
+  {
+    "timestamp": "2025-07-08 13:22:33.178735",
+    "input": {
+      "NOTA_EC": "6"
+    },
+    "prediction": "Cluster 0",
+    "task": "clustering",
+    "algorithm": "KMeans"
+  },
+  {
+    "timestamp": "2025-07-08 13:27:50.850479",
+    "input": {
+      "Medie": "7.7"
+    },
+    "prediction": "Cluster 1",
+    "task": "clustering",
+    "algorithm": "KMeans"
+  },
+  {
+    "timestamp": "2025-07-08 13:34:15.499562",
+    "input": {
+      "Sex_M": "1",
+      "Profil_Uman": "1"
+    },
+    "prediction": 1,
+    "task": "classification",
+    "algorithm": "LogisticRegression"
+  },
+  {
+    "timestamp": "2025-07-08 13:34:56.125637",
+    "input": {
+      "Sex_M": "1",
+      "Profil_Uman": "1"
+    },
+    "prediction": 0.7388868321592683,
+    "task": "regression",
+    "algorithm": "LinearRegression"
+  },
+  {
+    "timestamp": "2025-07-08 14:11:18.787823",
+    "input": {
+      "Medie": "7.8"
+    },
+    "prediction": 1,
+    "task": "clustering",
+    "algorithm": "KMeans"
+  },
+  {
+    "timestamp": "2025-07-08 14:11:22.861743",
+    "input": {
+      "Medie": "9.8"
+    },
+    "prediction": 1,
+    "task": "clustering",
+    "algorithm": "KMeans"
+  },
+  {
+    "timestamp": "2025-07-08 14:11:24.681335",
+    "input": {
+      "Medie": "9.8"
+    },
+    "prediction": 1,
+    "task": "clustering",
+    "algorithm": "KMeans"
+  },
+  {
+    "timestamp": "2025-07-08 14:11:26.170706",
+    "input": {
+      "Medie": "9.8"
+    },
+    "prediction": 1,
+    "task": "clustering",
+    "algorithm": "KMeans"
+  },
+  {
+    "timestamp": "2025-07-08 14:11:31.027981",
+    "input": {
+      "Medie": "4.5"
+    },
+    "prediction": 2,
+    "task": "clustering",
+    "algorithm": "KMeans"
+  },
+  {
+    "timestamp": "2025-07-08 14:11:34.266841",
+    "input": {
+      "Medie": "1.2"
+    },
+    "prediction": 0,
+    "task": "clustering",
+    "algorithm": "KMeans"
+  }
+]
