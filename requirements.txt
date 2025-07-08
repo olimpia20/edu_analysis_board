@@ -1,8 +1,0 @@
-Flask
-Flask-Login
-Flask-SQLAlchemy
-Flask-WTF
-WTForms
-pandas 
-email_validator
-scikit-learn
